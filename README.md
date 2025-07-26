@@ -5,6 +5,7 @@ A RESTful API for a culinary Telegram bot built with Clean Architecture principl
 ## Features
 
 ### 🔐 Authentication & Security
+
 - User registration and login
 - JWT-based authentication
 - Two-Factor Authentication (2FA) with TOTP
@@ -12,18 +13,21 @@ A RESTful API for a culinary Telegram bot built with Clean Architecture principl
 - Secure middleware for request validation
 
 ### 🍽️ Restaurant Search
+
 - Search restaurants by name/cuisine using Google Places API
 - Location-based nearby restaurant search
 - Restaurant recommendations
 - Detailed restaurant information with ratings, photos, and opening hours
 
 ### 🤖 Telegram Bot Integration
+
 - Interactive Telegram bot for restaurant search
 - Webhook-based message processing
 - Rich message formatting with inline keyboards
 - Location sharing support
 
 ### 📊 Request Logging & Monitoring
+
 - Comprehensive request logging middleware
 - IP address and user agent tracking
 - Response time monitoring
@@ -50,19 +54,22 @@ This project follows **Clean Architecture** principles with clear separation of 
 ## Prerequisites
 
 ### Required Software
+
 - Go 1.21 or higher
 - PostgreSQL 12+
 - Git
 
 ### API Keys Required
+
 1. **Google Places API Key**
+
    - Go to [Google Cloud Console](https://console.cloud.google.com/)
    - Create a new project or select existing one
    - Enable "Places API"
    - Create credentials (API Key)
    - Restrict the key to Places API for security
-
 2. **Telegram Bot Token**
+
    - Open Telegram and search for `@BotFather`
    - Send `/newbot` command
    - Follow instructions to create your bot
@@ -71,6 +78,7 @@ This project follows **Clean Architecture** principles with clear separation of 
 ## Installation Steps
 
 ### 1. Clone and Setup Project
+
 ```bash
 # Clone the repository
 git clone <your-repo-url>
@@ -81,6 +89,7 @@ go mod download
 ```
 
 ### 2. Database Setup
+
 ```bash
 # Install PostgreSQL (macOS)
 brew install postgresql
@@ -182,6 +191,7 @@ cors:
 ## API Endpoints
 
 ### Authentication
+
 - `POST /api/v1/auth/register` - Register new user
 - `POST /api/v1/auth/login` - User login
 - `POST /api/v1/auth/2fa/setup` - Setup 2FA (protected)
@@ -189,15 +199,18 @@ cors:
 - `GET /api/v1/auth/profile` - Get user profile (protected)
 
 ### Restaurants
+
 - `GET /api/v1/restaurants/search` - Search restaurants
 - `GET /api/v1/restaurants/nearby` - Find nearby restaurants
 - `GET /api/v1/restaurants/recommendations` - Get recommendations
 - `POST /api/v1/restaurants/format-telegram` - Format for Telegram
 
 ### Telegram
+
 - `POST /api/v1/telegram/webhook` - Telegram webhook endpoint
 
 ### Health Check
+
 - `GET /health` - Service health status
 
 ## Telegram Bot Commands
@@ -308,11 +321,13 @@ make lint
 ```
 
 ### Building for Production
+
 ```bash
 go build -o bin/api cmd/api/main.go
 ```
 
 ### Docker Support
+
 ```bash
 # Build image
 docker build -t telegram-bot-api .
@@ -324,19 +339,3 @@ docker-compose up -d
 ## API Documentation
 
 Swagger documentation is available at `/swagger/` when running in development mode.
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Support
-
-For support and questions, please open an issue in the GitHub repository.
